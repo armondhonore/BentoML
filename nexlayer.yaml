@@ -1,0 +1,8 @@
+application:
+  name: bentoml
+  pods:
+  - name: app
+    image: bentoml/bentoml:latest
+    path: /
+    servicePorts:
+    - 3000
