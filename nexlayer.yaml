@@ -2,7 +2,7 @@ application:
   name: bentoml
   pods:
   - name: app
-    image: bentoml/bentoml:latest
+    image: mirror.gcr.io/bentoml/bentoml:latest
     path: /
     servicePorts:
     - 3000
