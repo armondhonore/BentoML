@@ -2,14 +2,14 @@
 
 **Live:** [https://relaxed-weasel-bentoml.cloud.nexlayer.ai](https://relaxed-weasel-bentoml.cloud.nexlayer.ai)  
 
-**Runtime:**  · **Port:** auto-detected · **Deploy branch:** main
+**Runtime:**  · **Port:** auto-detected · **Deploy branch:** nexlayer
 
 ---
 
 ## How this deployment works
 
 **bentoml** is deployed on [Nexlayer](https://nexlayer.ai) — a container-native
-platform where every push to `main` triggers a fully automated build-and-deploy
+platform where every push to `nexlayer` triggers a fully automated build-and-deploy
 pipeline with no infrastructure management required:
 
 1. **AI analysis** — the Nexlayer agent reads your repo, understands your runtime,
@@ -39,7 +39,7 @@ application:
   name: bentoml
   pods:
   - name: app
-    image: mirror.gcr.io/bentoml/bentoml:latest
+    image: "registry.nexlayer.io/user_01kece1xyh817dwff7wnarhkxd/bentoml:19f1523c6ca"
     path: /
     servicePorts:
     - 3000
@@ -64,7 +64,7 @@ only regenerates it if you delete it or on the very first deploy.
 ### `.github/workflows/nexlayer.yml` — CI/CD
 
 Triggers on:
-- **Push** to `main` → production redeploy
+- **Push** to `nexlayer` → production redeploy
 - **Pull request** → preview deploy with a unique URL posted as a PR comment
 - **Manual** → run on demand from the Actions tab (no commit required)
 
@@ -81,7 +81,7 @@ include this context in your prompt:
 > *"This project is deployed on Nexlayer. The deployment manifest is `nexlayer.yaml`.
 > The container exposes port auto-detected. When adding a new service (database, cache,
 > worker), add it as a new pod in `nexlayer.yaml` and reference it with
-> `<podName>.pod:<port>` syntax. CI/CD runs on push to `main`."*
+> `<podName>.pod:<port>` syntax. CI/CD runs on push to `nexlayer`."*
 
 The `nexlayer.skills` file in this repo gives agents structured guidance on the
 Nexlayer platform, including schema reference, common patterns, and anti-patterns.
