@@ -2,7 +2,7 @@ application:
   name: bentoml
   pods:
   - name: app
-    image: mirror.gcr.io/bentoml/bentoml:latest
+    image: "# filled by pipeline"
     path: /
     servicePorts:
     - 3000
